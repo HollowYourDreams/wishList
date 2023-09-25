@@ -29,6 +29,6 @@ namespace WishList.Contracts.Dtos
 
         public Guid CreatedBy { get; set; }
 
-        public byte[]? Image { get; set; }
+        public byte[] Image { get; set; }
     }
 }

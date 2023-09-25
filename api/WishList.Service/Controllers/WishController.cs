@@ -9,7 +9,7 @@ namespace WishList.Service.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class WishController : ControllerBase
     {
         public ILogger<WishController> Logger { get; }
@@ -62,14 +62,14 @@ namespace WishList.Service.Controllers
             };
         }
 
-        [Route("reserve/{wishId}/{userId?}")]
+        [Route("reserve/{wishId}")]
         [HttpPatch]
         public async Task<WishDto> ReserveWish([FromRoute][Required] Guid wishId, [FromQuery][Required]Guid userId, CancellationToken ct = default)
         {
             return new WishDto { Id = wishId, ReservedByUser = userId };
         }
 
-        [Route("complete/{wishId}/{completedBy?}/{showWhoIsComplete?}")]
+        [Route("complete/{wishId}")]
         [HttpPatch]
         public async Task<WishDto> CompleteWish([FromRoute][Required] Guid wishId, [FromQuery][Required] Guid completedBy, [FromQuery] bool showWhoIsComplete = false, CancellationToken ct = default)
         {
