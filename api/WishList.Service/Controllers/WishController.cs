@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+using System.ComponentModel.DataAnnotations;
 
 using WishList.Contracts.Dtos;
 
@@ -6,6 +9,7 @@ namespace WishList.Service.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class WishController : ControllerBase
     {
         public ILogger<WishController> Logger { get; }
@@ -14,23 +18,30 @@ namespace WishList.Service.Controllers
             Logger = logger;
         }
 
-        public async Task<WishDto> AddWish(WishDto wish, CancellationToken ct = default)
+        [Route("add")]
+        [HttpPost]
+        public async Task<WishDto> AddWish([FromBody][Required]WishDto wish, CancellationToken ct = default)
         {
             return wish;
         }
 
-        public async Task<bool> DeleteWish(Guid wishId, CancellationToken ct = default)
+        [Route("delete/{wishId}")]
+        [HttpDelete]
+        public async Task<bool> DeleteWish([FromRoute][Required]Guid wishId, CancellationToken ct = default)
         {
             return true;
         }
 
-        public async Task<WishDto> UpdateWish(WishDto wish, CancellationToken ct = default)
+        [Route("delete/{wishId}")]
+        [HttpPut]
+        public async Task<WishDto> UpdateWish([FromBody][Required]WishDto wish, CancellationToken ct = default)
         {
             return wish;
         }
 
-        [HttpGet(Name = "get")]
-        public async Task<WishDto> GetWish([FromQuery]Guid id, CancellationToken ct = default)
+        [Route("get/{wishId}")]
+        [HttpGet]
+        public async Task<WishDto> GetWish([FromRoute][Required]Guid id, CancellationToken ct = default)
         {
             return new WishDto
             {
@@ -38,7 +49,9 @@ namespace WishList.Service.Controllers
             };
         }
 
-        public async Task<List<WishDto>> GetWishesForUser(Guid userId, CancellationToken ct = default)
+        [Route("user/{userId}")]
+        [HttpGet]
+        public async Task<List<WishDto>> GetWishesForUser([FromRoute][Required]Guid userId, CancellationToken ct = default)
         {
             return new List<WishDto>
             {
@@ -49,17 +62,21 @@ namespace WishList.Service.Controllers
             };
         }
 
-        public async Task<WishDto> ReserveWish(Guid wishId, Guid userId, CancellationToken ct = default)
+        [Route("reserve/{wishId}/{userId?}")]
+        [HttpPatch]
+        public async Task<WishDto> ReserveWish([FromRoute][Required] Guid wishId, [FromQuery][Required]Guid userId, CancellationToken ct = default)
         {
             return new WishDto { Id = wishId, ReservedByUser = userId };
         }
 
-        public async Task<WishDto> CompleteWish(Guid wishId, Guid completedBy, bool showWhoIsCompleted = false, CancellationToken ct = default)
+        [Route("complete/{wishId}/{completedBy?}/{showWhoIsComplete?}")]
+        [HttpPatch]
+        public async Task<WishDto> CompleteWish([FromRoute][Required] Guid wishId, [FromQuery][Required] Guid completedBy, [FromQuery] bool showWhoIsComplete = false, CancellationToken ct = default)
         {
             return new WishDto
             {
                 IsCompleted = true,
-                ShowWhoIsCompleted = showWhoIsCompleted,
+                ShowWhoIsCompleted = showWhoIsComplete,
                 CompletedBy = completedBy
             };
         }
