@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace WishList.Contracts.Dtos
 {
@@ -10,7 +11,10 @@ namespace WishList.Contracts.Dtos
         public string Email { get; set; }
         public string Country { get; set; }
         public string RealName { get; set; }
+        public string PhoneNumber { get; set; }
 
-        public WishDto Wish { get; set; }
+        List<Guid> FriendsIds { get; set;  }
+
+        public List<WishDto> Wishes { get; set; }
     }
 }

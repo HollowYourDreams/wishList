@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WishList.Contracts.Enums
+﻿namespace WishList.Contracts.Enums
 {
     public enum Currencies
     {

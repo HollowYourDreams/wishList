@@ -4,3 +4,4 @@
 **/.idea/**
 **/.ide/**
 **/node_modules/**
+**/package-lock.json
