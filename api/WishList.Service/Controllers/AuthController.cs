@@ -9,8 +9,5 @@ namespace WishList.Service.Controllers
         {
              
         }
-
-        [HttpPost]
-        public async 
     }
 }

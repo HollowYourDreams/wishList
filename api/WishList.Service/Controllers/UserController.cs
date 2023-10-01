@@ -1,6 +1,8 @@
-﻿namespace WishList.Service.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace WishList.Service.Controllers
 {
-    public class UserController
+    public class UserController: ControllerBase
     {
     }
 }

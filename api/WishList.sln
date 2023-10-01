@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WishList.Service", "WishList.Service\WishList.Service.csproj", "{F394A35A-C879-4E4E-ADF0-12AEF3A0C9C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WishList.Service", "WishList.Service\WishList.Service.csproj", "{F394A35A-C879-4E4E-ADF0-12AEF3A0C9C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WishList.Contracts", "WishList.Contracts\WishList.Contracts.csproj", "{0664963B-E109-448D-8C86-AD795CC36B78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WishList.Contracts", "WishList.Contracts\WishList.Contracts.csproj", "{0664963B-E109-448D-8C86-AD795CC36B78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WishList.DataAccess", "WishList.DataAccess\WishList.DataAccess.csproj", "{BDD52A7C-9491-45BE-A44D-8A70EB58312E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WishList.DataAccess", "WishList.DataAccess\WishList.DataAccess.csproj", "{BDD52A7C-9491-45BE-A44D-8A70EB58312E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WishList.Common", "WishList.Common\WishList.Common.csproj", "{99EB4337-A828-46DD-A5D1-4C36A4F9DD8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{BDD52A7C-9491-45BE-A44D-8A70EB58312E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDD52A7C-9491-45BE-A44D-8A70EB58312E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDD52A7C-9491-45BE-A44D-8A70EB58312E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99EB4337-A828-46DD-A5D1-4C36A4F9DD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99EB4337-A828-46DD-A5D1-4C36A4F9DD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99EB4337-A828-46DD-A5D1-4C36A4F9DD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99EB4337-A828-46DD-A5D1-4C36A4F9DD8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.OpenApi;
 using Microsoft.AspNetCore.Http.HttpResults;
 using WishList.Service.Controllers;
+using WishList.Contracts.Interfaces;
+using WishList.Service.Services;
 
 namespace WishList.Service
 {
@@ -11,6 +13,8 @@ namespace WishList.Service
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.AddScoped<IWishService, WishService>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

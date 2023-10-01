@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 using System.ComponentModel.DataAnnotations;
 
+using WishList.Common.Mappers;
 using WishList.Contracts.Dtos;
+using WishList.Contracts.Interfaces;
 
 namespace WishList.Service.Controllers
 {
@@ -12,9 +14,11 @@ namespace WishList.Service.Controllers
     //[Authorize]
     public class WishController : ControllerBase
     {
+        public IWishService WishService { get; }
         public ILogger<WishController> Logger { get; }
-        public WishController(ILogger<WishController> logger)
+        public WishController(IWishService wishService, ILogger<WishController> logger)
         {
+            WishService = wishService;
             Logger = logger;
         }
 
@@ -32,10 +36,12 @@ namespace WishList.Service.Controllers
             return true;
         }
 
-        [Route("delete/{wishId}")]
+        [Route("update")]
         [HttpPut]
         public async Task<WishDto> UpdateWish([FromBody][Required]WishDto wish, CancellationToken ct = default)
         {
+            var dal = wish.ToDal();
+            dal.ToDto();
             return wish;
         }
 
