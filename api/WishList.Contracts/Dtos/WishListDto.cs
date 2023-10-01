@@ -12,6 +12,6 @@ namespace WishList.Contracts.Dtos
         public string Description { get; set; }
         public Guid Owner { get; set; }
 
-        public List<WishDto> Wishes { get; set; }
+        public List<Guid> Wishes { get; set; }
     }
 }
